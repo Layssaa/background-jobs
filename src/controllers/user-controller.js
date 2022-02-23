@@ -11,12 +11,8 @@ export default {
       password,
     };
 
-    await Mail.sendMail({
-      from: "queue test <queue@queue.com>",
-      to: `${name} <${email}>`,
-      sub: "Register user",
-      html: `Olá`,
-    });
+    //adicionar jobs registration na fila
+
     res.json(user);
   },
 };
