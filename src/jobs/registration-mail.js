@@ -3,15 +3,13 @@ import Mail from "../lib/mail";
 export default {
   key: "RegistrationMail",
   async handle({ data }) {
-    const {
-      user: { name, email },
-    } = data;
-    
+    const { user } = data;
+
     await Mail.sendMail({
       from: "queue test <queue@queue.com>",
-      to: `${name} <${email}>`,
-      sub: "Register user",
-      html: `Olá`,
+      to: `${user.name} <${user.email}>`,
+      subject: "Register user",
+      html: `Olá ${user.name}, esse é o sistema de filas`,
     });
   },
 };
